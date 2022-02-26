@@ -16,4 +16,5 @@ ADD . /source
 ADD docker-conf/default.conf /etc/nginx/conf.d/default.conf
 ADD docker-conf/supervisord.conf /etc/supervisord.conf
 COPY --from=builder /app/online-clipboard/dist /dist
+USER root
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
